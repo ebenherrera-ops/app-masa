@@ -1,0 +1,27 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111"><title>Masa+</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>Masa+</h1><span id="fecha"></span></header>
+<nav><button data-t="hoy" class="on">Hoy</button><button data-t="comidas">Comidas</button><button data-t="peso">Peso</button><button data-t="gym">Gym</button><button data-t="perfil">Perfil</button></nav>
+<main>
+<section id="hoy"><div class="card"><h2>Calorías</h2><div class="bar"><i id="bk"></i></div><p id="tk"></p><h2>Proteína</h2><div class="bar"><i id="bp"></i></div><p id="tp"></p></div>
+<div class="card"><h2>Comidas del día</h2><input id="dia" type="date"><ul id="lhoy"></ul></div></section>
+<section id="comidas" hidden><div class="card"><h2>Agregar alimento</h2>
+<select id="selAl"></select><label>Porciones <input id="porc" type="number" value="1" step="0.5" min="0.25"></label><button id="addAl">Agregar</button>
+<details><summary>Alimento personalizado</summary><input id="cn" placeholder="Nombre"><input id="ck" type="number" placeholder="kcal"><input id="cp" type="number" placeholder="Proteína g"><button id="addC">Agregar</button></details>
+<p class="nota">Valores aproximados por porción (basados en USDA FoodData Central).</p></div></section>
+<section id="peso" hidden><div class="card"><h2>Registrar peso</h2><input id="pv" type="number" step="0.1" placeholder="kg"><button id="addP">Guardar hoy</button></div>
+<div class="card"><canvas id="gp" width="600" height="260"></canvas><ul id="lp"></ul></div></section>
+<section id="gym" hidden><div class="card"><h2>Rutina</h2><select id="selR"></select><div id="ejs"></div>
+<details><summary>Editar rutinas</summary><input id="rn" placeholder="Nombre de rutina"><button id="rNew">Crear rutina</button><button id="rRen">Renombrar actual</button><button id="rDel" class="danger">Borrar rutina actual</button>
+<h2>Ejercicio</h2><input id="en" placeholder="Nombre ejercicio"><label>Series <input id="es" type="number" value="3"></label><label>Reps mín <input id="emin" type="number" value="8"></label><label>Reps máx <input id="emax" type="number" value="12"></label><label>Incremento kg <input id="einc" type="number" step="0.5" value="2.5"></label><button id="eSave">Agregar / actualizar ejercicio</button><p class="nota">Toca un ejercicio de la lista para editarlo.</p></details></div>
+<div class="card"><h2>Registrar serie</h2><select id="selE"></select><input id="sw" type="number" step="0.5" placeholder="Peso kg"><input id="sr" type="number" placeholder="Reps"><button id="addS">Guardar serie</button><p id="sug" class="sug"></p></div>
+<div class="card"><h2>Progreso (peso máx/día)</h2><canvas id="ge" width="600" height="260"></canvas><ul id="ls"></ul></div></section>
+<section id="perfil" hidden><div class="card"><h2>Perfil</h2>
+<label>Peso kg <input id="fp" type="number" step="0.1"></label><label>Altura cm <input id="fa" type="number"></label><label>Edad <input id="fe" type="number"></label>
+<label>Sexo <select id="fs"><option value="h">Hombre</option><option value="m">Mujer</option></select></label>
+<label>Actividad <select id="fact"><option value="1.2">Sedentario</option><option value="1.375">Ligera</option><option value="1.55">Moderada</option><option value="1.725">Alta</option></select></label>
+<label>Superávit kcal <input id="fsu" type="number"></label><label>Proteína g/kg <input id="fpk" type="number" step="0.1"></label>
+<button id="guardaP">Guardar</button><p id="res"></p>
+<p class="nota">Son referencias generales (Mifflin-St Jeor), no consejo médico ni nutricional. Consulta a un profesional.</p></div>
+<div class="card"><h2>Datos</h2><button id="exp">Exportar JSON</button><label class="btn">Importar JSON<input id="imp" type="file" accept=".json" hidden></label></div></section>
+</main><script src="data.js"></script><script src="app.js"></script></body></html>
